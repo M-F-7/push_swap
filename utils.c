@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 22:22:31 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/15 22:23:21 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/16 15:56:31 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,36 +25,38 @@ int	ft_stacksize(t_stack_node *stack)
 	return (i);
 }
 
-void	ft_swap_stack(t_stack_node *a, t_stack_node *b)
+t_stack_node	*find_lastnode_stack(t_stack_node *stack)
 {
-	int	tmp;
-
-	tmp = a->content;
-	a->content = b->content;
-	b->content = tmp;
+	if (!stack)
+		return (NULL);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
 }
 
-void	print_stack(t_stack_node *stack)
+
+void	put_min_top_stack(t_stack_node *stack)
 {
-	while (stack)
+	t_stack_node	*min;
+
+	min = NULL;
+	min -> content = stack -> content;
+	while (stack->next)
 	{
-		printf("%d ", stack->content);
+		if (stack -> content < min -> content)
+				min -> content = stack -> content;
 		stack = stack->next;
 	}
-	printf("\n");
+	ft_stack_add_front(&stack, min);
 }
 
-t_stack_node	*find_lastnode_stack(t_stack_node *lst)
+int	is_sorted(t_stack_node *stack)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
-}
-
-void	ft_stack_add_front(t_stack_node **lst, t_stack_node *new)
-{
-	new->next = *lst;
-	*lst = new;
+	while(stack -> next)
+	{
+		if (stack -> content > stack -> next -> content)
+			return (0);
+		stack = stack -> next;
+	}
+	return (1);
 }

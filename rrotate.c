@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:32:42 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/15 22:26:17 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/16 10:14:50 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void    rra(t_stack_node **stack)
     before_last -> next = NULL;
     last-> next = *stack;
     *stack = last;
-    
+    ft_printf("rra\n");
 }
 
 void    rrb(t_stack_node **stack)
@@ -39,7 +39,7 @@ void    rrb(t_stack_node **stack)
     before_last -> next = NULL;
     last-> next = *stack;
     *stack = last;
-    
+    ft_printf("rrb\n");
 }
 
 
@@ -48,6 +48,7 @@ void    rrr(t_stack_node **stack1, t_stack_node **stack2)
 {
     rra(stack1);
     rrb(stack2);
+    ft_printf("rrr\n");
 }
 
 // int main(void)

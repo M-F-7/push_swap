@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 15:32:44 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/15 10:50:53 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/16 21:44:04 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,77 +21,135 @@
 
 int	main(int ac, char **av)
 {
-	size_t	i;
-    t_stack_node **a;
-    t_stack_node **b;
+	t_stack_node	*a;
+	t_stack_node	*b;
 
 	a = NULL;
-	i = 1;
-    if (b)
-        return (0);
+	b = NULL;
 	if (ac < 2)
 		return (0);
-	if (ac == 2)
+	if (ac == 2 && !av[2])
 	{
-		av = ft_split(av[i], ' ');
+		av = ft_split(av[1], ' ');
 		if (!av)
 			free(av);
+	}
+	ft_stack_copy(&a, av);
+	if (!a)
+		return (0);
+	if (is_sorted(a)==1)
+		return (0);
+	if (ac == 3 || ac == 4)
+	{
+		ft_check_number(&a);
+		ft_print_stack(&a);
 		return (0);
 	}
-	ft_lstadd_back(a, av[i++]);
-    
-    
-}
-
-
-void	check_error(char **tab)
-{
-	int	i;
-	int	j;
-	char	tmp;
-
-	i = 0;
-	j = 0;
-	tmp = tab[i][j];
-	while (tab[i])
-	{
-        tmp = tab[i][j];
-		while (tab[i][j])
-		{
-			if (!ft_isdigit(tab[i][j]))
-				ft_printf("Error\n");
-			if (tab[i][j] > INT_MAX || tab[i][j] < INT_MIN)
-				ft_printf("Error\n");
-            if (check_double(tab, tmp, i, j) == 1)
-                ft_printf("Error\n");
-            j++;
-		}
-        i++;
-	}
-}
-
-int	check_double(char **tab, char c, int i, int j)
-{
-    if (tab[i][j])
-        j++;
-    else
-    {
-        i++;
-        j = 0;
-    }
-	while (tab[i])
-	{
-		while (tab[i][j])
-		{
-			if (c == tab[i][j])
-				return (1);
-            j++;
-		}
-        i++;
-        j = 0;
-	}
+	ft_sort_stack(&a, &b);
+	ft_print_stack(&a);
 	return (0);
 }
+
+void	ft_sort_stack(t_stack_node **stack1, t_stack_node **stack2)
+{
+	int	size;
+
+	size = ft_stacksize((*stack1));
+	while(size > 3)
+		pb(stack1, stack2);
+	ft_check_number((stack1));
+	push_back_to_a(stack1, stack2);
+	if (is_sorted((*stack1)) == 1)
+		put_min_top_stack((*stack1));
+}
+
+
+
+
+void	push_back_to_a(t_stack_node **a, t_stack_node **b)
+{
+    t_stack_node *node;
+
+    while (*b)
+    {
+        init_stack(*a, *b); // met à jour index, target, cost, cheapest
+        // Trouver le node marqué cheapest dans B
+        node = *b;
+        while (node && !node->cheapest)
+            node = node->next;
+        if (node)
+            move_cheapest(a, b, node); // effectue les moves et pa
+    }
+	if (is_sorted((*a)) == 1)
+    	put_min_top_stack(*a);
+}
+
+
+
+// void	move_cheapest(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest)
+// {
+//     int	cost_a = cheapest->cost_a;
+//     int	cost_b = cheapest->cost_b;
+
+//     // Rotations combinées
+//     while (cost_a > 0 && cost_b > 0)
+//     {
+//         rr(a, b);
+//         cost_a--;
+//         cost_b--;
+//     }
+//     while (cost_a < 0 && cost_b < 0)
+//     {
+//         rrr(a, b);
+//         cost_a++;
+//         cost_b++;
+//     }
+//     // Rotations individuelles
+//     while (cost_a > 0)
+//     {
+//         ra(a);
+//         cost_a--;
+//     }
+//     while (cost_a < 0)
+//     {
+//         rra(a);
+//         cost_a++;
+//     }
+//     while (cost_b > 0)
+//     {
+//         rb(b);
+//         cost_b--;
+//     }
+//     while (cost_b < 0)
+//     {
+//         rrb(b);
+//         cost_b++;
+//     }
+//     pa(a, b);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -99,11 +157,8 @@ int	check_double(char **tab, char c, int i, int j)
 // faire une fonction qui free ta lst;
 // s occcuper de read et exit;
 // faire une fonction qui trouve le min
-//faire une fonction qui met min au top
-// faire une fonction qui trouve un max 
-
-
-
+// faire une fonction qui met min au top
+// faire une fonction qui trouve un max
 
 // quick sort : porrais prendre la premier element de av et le choisir comme pivot puis
 // comparer av[i++] puis le mettre dans un des deux sous tableau si c est inferieur ou superieur
@@ -118,3 +173,13 @@ int	check_double(char **tab, char c, int i, int j)
 // les trois derniers doivent etre range dans l ordre croissant quand il ny a plus qu eux: soit just swap ; soit rota rev et puis swap.
 // meme focntionnement pour push back il faut que le top a soit plus grand que l elt a push,	// c est la seule verif a faire sinon on re push vers a. (je ne pense pas qu il faut re calculer les couts)
 // last step : mettre le min au top
+
+
+
+
+//push toutes les nodes de a vers b jusqu a ce qu il y en est plus que 3
+// sort a
+//la target node de la node dans b est l elt le plus petit plus garnd que lui
+// si il y en a pas alors c est le plus petit
+
+//len - position

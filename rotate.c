@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:32:45 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/15 22:26:36 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/16 19:12:20 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void    ra(t_stack_node **stack)
     last = find_lastnode_stack(*stack);
     last -> next = first;
     first -> next = NULL;
+    ft_printf("ra\n");
 }
+
 void    rb(t_stack_node **stack)
 {
     t_stack_node *first;
@@ -33,12 +35,14 @@ void    rb(t_stack_node **stack)
     last = find_lastnode_stack(*stack);
     last -> next = first;
     first -> next = NULL;
+    ft_printf("rb\n");
 }
 
 void    rr(t_stack_node **stack1, t_stack_node **stack2)
 {
     ra(stack1);
     rb(stack2);
+    ft_printf("rr\n");
 
 }
 

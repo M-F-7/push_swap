@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:32:38 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/15 22:28:48 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/16 10:16:26 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void    pa(t_stack_node **stack1, t_stack_node **stack2)
     first = *stack2;
     *stack2 = first -> next;
     ft_stack_add_front(stack1, first);
+    ft_printf("pa\n");
     
 }
 
@@ -33,6 +34,7 @@ void    pb(t_stack_node **stack1, t_stack_node **stack2)
     first = *stack1;
     *stack1 = first -> next;
     ft_stack_add_front(stack2, first);
+    ft_printf("pb\n");
 }
 
 
