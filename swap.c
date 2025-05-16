@@ -6,48 +6,49 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:32:00 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/16 14:29:05 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/16 22:30:22 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
 void	ft_swap_stack(t_stack_node *a, t_stack_node *b)
 {
-    int tmp;
+	int	tmp;
 
-    tmp = a -> content;
-    a -> content = b -> content;
-    b -> content = tmp;
+	tmp = a->content;
+	a->content = b->content;
+	b->content = tmp;
 }
-void sa(t_stack_node **stack)
+void	sa(t_stack_node **stack)
 {
-    t_stack_node *second;
-    if (ft_stacksize(*stack) < 2)
-        return;
-    second = (*stack)->next;
-    ft_swap_stack(*stack, second);
-    ft_printf("sa\n");
-}
+	t_stack_node	*second;
 
-void sb(t_stack_node **stack)
-{
-    t_stack_node *second;
-    if (ft_stacksize(*stack) < 2)
-        return;
-    second = (*stack)->next;
-    ft_swap_stack(*stack, second);
-    ft_printf("sb\n");
+	if (ft_stacksize(*stack) < 2)
+		return ;
+	second = (*stack)->next;
+	ft_swap_stack(*stack, second);
+	ft_printf("sa\n");
 }
 
-void   ss(t_stack_node **stack1,t_stack_node **stack2)
+void	sb(t_stack_node **stack)
 {
-    if (ft_stacksize(*stack1) < 2 || ft_stacksize(*stack2) < 2)
-        return;
-    sa(stack1);
-    sb(stack2);
-    ft_printf("ss\n");
+	t_stack_node	*second;
+
+	if (ft_stacksize(*stack) < 2)
+		return ;
+	second = (*stack)->next;
+	ft_swap_stack(*stack, second);
+	ft_printf("sb\n");
+}
+
+void	ss(t_stack_node **stack1, t_stack_node **stack2)
+{
+	if (ft_stacksize(*stack1) < 2 || ft_stacksize(*stack2) < 2)
+		return ;
+	sa(stack1);
+	sb(stack2);
+	ft_printf("ss\n");
 }
 
 // int main(void)
@@ -109,5 +110,5 @@ void   ss(t_stack_node **stack1,t_stack_node **stack2)
 //     free(node5);
 //     free(node6);
 
-//     return 0;
+//     return (0);
 // }

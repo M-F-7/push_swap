@@ -43,65 +43,38 @@ int	check_error(t_stack_node **tab, int content)
 	return (1);
 }
 
-
 void	ft_check_number(t_stack_node **stack)
 {
-    int first;
-    int second;
-    t_stack_node *last_node;
-    int last;
-    
-    first = (*stack)->content;
-    second = (*stack)->next->content;
-    last_node = find_lastnode_stack((*stack));
-    last = last_node -> content;
-    if (last == second)
-    {
-        if (second < first)
-            sa(stack);
-    }
-    if (first < second && second < last)
-        return; 
-    if (first > second && second < last && first < last)
-        sa(stack);
-    else if (first > second && second > last)
-    {
-        sa(stack);
-        rra(stack);
-    }
-    else if (first > second && second < last && first > last)
-        ra(stack);
-    else if (first < second && second > last && first < last)
-    {
-        sa(stack);
-        ra(stack);
-    }
-    else if (first < second && second > last && first > last)
-        rra(stack);
-}
+	int				first;
+	int				second;
+	t_stack_node	*last_node;
+	int				last;
 
-void	free_stack(t_stack_node **stack)
-{
-	t_stack_node	*tmp;
-	t_stack_node	*next;
-
-	tmp = *stack;
-	while (tmp)
+	first = (*stack)->content;
+	second = (*stack)->next->content;
+	last_node = find_lastnode_stack((*stack));
+	last = last_node->content;
+	if (last == second)
 	{
-		next = tmp->next;
-		free(tmp);
-		tmp = next;
+		if (second < first)
+			sa(stack);
 	}
-	*stack = NULL;
-}
-
-void	ft_print_stack(t_stack_node **stack)
-{
-	t_stack_node *tmp = *stack;
-	while (tmp)
+	if (first < second && second < last)
+		return ;
+	if (first > second && second < last && first < last)
+		sa(stack);
+	else if (first > second && second > last)
 	{
-		ft_printf("%d ", tmp->content);
-		tmp = tmp->next;
+		sa(stack);
+		rra(stack);
 	}
-	ft_printf("\n");
+	else if (first > second && second < last && first > last)
+		ra(stack);
+	else if (first < second && second > last && first < last)
+	{
+		sa(stack);
+		ra(stack);
+	}
+	else if (first < second && second > last && first > last)
+		rra(stack);
 }

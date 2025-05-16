@@ -6,49 +6,47 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:32:42 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/16 10:14:50 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/16 22:30:25 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    rra(t_stack_node **stack)
+void	rra(t_stack_node **stack)
 {
-    t_stack_node *before_last;
-    t_stack_node *last;
+	t_stack_node	*before_last;
+	t_stack_node	*last;
 
-    before_last = *stack;
-    last = find_lastnode_stack(*stack);
-    while(before_last -> next && before_last -> next -> next)
-        before_last = before_last -> next;
-    before_last -> next = NULL;
-    last-> next = *stack;
-    *stack = last;
-    ft_printf("rra\n");
+	before_last = *stack;
+	last = find_lastnode_stack(*stack);
+	while (before_last->next && before_last->next->next)
+		before_last = before_last->next;
+	before_last->next = NULL;
+	last->next = *stack;
+	*stack = last;
+	ft_printf("rra\n");
 }
 
-void    rrb(t_stack_node **stack)
+void	rrb(t_stack_node **stack)
 {
-    t_stack_node *before_last;
-    t_stack_node *last;
+	t_stack_node	*before_last;
+	t_stack_node	*last;
 
-    before_last = *stack;
-    last = find_lastnode_stack(*stack);
-    while(before_last -> next && before_last -> next -> next)
-       before_last = before_last -> next;
-    before_last -> next = NULL;
-    last-> next = *stack;
-    *stack = last;
-    ft_printf("rrb\n");
+	before_last = *stack;
+	last = find_lastnode_stack(*stack);
+	while (before_last->next && before_last->next->next)
+		before_last = before_last->next;
+	before_last->next = NULL;
+	last->next = *stack;
+	*stack = last;
+	ft_printf("rrb\n");
 }
 
-
-
-void    rrr(t_stack_node **stack1, t_stack_node **stack2)
+void	rrr(t_stack_node **stack1, t_stack_node **stack2)
 {
-    rra(stack1);
-    rrb(stack2);
-    ft_printf("rrr\n");
+	rra(stack1);
+	rrb(stack2);
+	ft_printf("rrr\n");
 }
 
 // int main(void)
@@ -110,5 +108,5 @@ void    rrr(t_stack_node **stack1, t_stack_node **stack2)
 //     free(node5);
 //     free(node6);
 
-//     return 0;
+//     return (0);
 // }

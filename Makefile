@@ -11,6 +11,7 @@ SRC = push_swap.c \
 		utils2.c \
 		errors.c \
 		init_stack.c \
+		sort_stack.c \
 		../libft/printf/ft_printf.c \
 		../libft/printf/ft_putchar.c \
 		../libft/printf/ft_putstr.c \

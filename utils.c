@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 22:22:31 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/16 15:56:31 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/16 23:00:32 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,29 +34,82 @@ t_stack_node	*find_lastnode_stack(t_stack_node *stack)
 	return (stack);
 }
 
+t_stack_node	*find_little(t_stack_node *stack)
+{
+	t_stack_node	*little;
+
+	little = stack;
+	while (stack)
+	{
+		if (stack->content < little->content)
+			little = stack;
+		stack = stack->next;
+	}
+	return (little);
+}
 
 void	put_min_top_stack(t_stack_node *stack)
 {
 	t_stack_node	*min;
 
 	min = NULL;
-	min -> content = stack -> content;
+	min->content = stack->content;
 	while (stack->next)
 	{
-		if (stack -> content < min -> content)
-				min -> content = stack -> content;
+		if (stack->content < min->content)
+			min->content = stack->content;
 		stack = stack->next;
 	}
 	ft_stack_add_front(&stack, min);
 }
 
-int	is_sorted(t_stack_node *stack)
+void	ft_print_stack(t_stack_node **stack)
 {
-	while(stack -> next)
+	t_stack_node	*tmp;
+
+	tmp = *stack;
+	while (tmp)
 	{
-		if (stack -> content > stack -> next -> content)
-			return (0);
-		stack = stack -> next;
+		ft_printf("%d ", tmp->content);
+		tmp = tmp->next;
 	}
-	return (1);
+	ft_printf("\n");
 }
+
+// void	put_min_top_stack(t_stack_node **stack)
+// {
+//     t_stack_node	*min_node;
+//     int				pos;
+//     int				size;
+//     t_stack_node	*tmp;
+//     int				i;
+
+//     if (!stack || !*stack)
+//         return;
+//     min_node = find_little(*stack);
+//     tmp = *stack;
+//     pos = 0;
+//     i = 0;
+//     size = ft_stacksize(*stack);
+//     while (tmp)
+//     {
+//         if (tmp == min_node)
+//         {
+//             pos = i;
+//             break;
+//         }
+//         tmp = tmp->next;
+//         i++;
+//     }
+//     if (pos <= size / 2)
+//     {
+//         while (pos-- > 0)
+//             ra(stack);
+//     }
+//     else
+//     {
+//         pos = size - pos;
+//         while (pos-- > 0)
+//             rra(stack);
+//     }
+// }

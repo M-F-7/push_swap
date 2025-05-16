@@ -6,44 +6,43 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:32:45 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/16 19:12:20 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/16 22:30:27 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    ra(t_stack_node **stack)
+void	ra(t_stack_node **stack)
 {
-    t_stack_node *first;
-    t_stack_node *last;
-    
-    first = *stack;
-    *stack = (*stack) -> next;
-    last = find_lastnode_stack(*stack);
-    last -> next = first;
-    first -> next = NULL;
-    ft_printf("ra\n");
+	t_stack_node	*first;
+	t_stack_node	*last;
+
+	first = *stack;
+	*stack = (*stack)->next;
+	last = find_lastnode_stack(*stack);
+	last->next = first;
+	first->next = NULL;
+	ft_printf("ra\n");
 }
 
-void    rb(t_stack_node **stack)
+void	rb(t_stack_node **stack)
 {
-    t_stack_node *first;
-    t_stack_node *last;
-    
-    first = *stack;
-    *stack = (*stack) -> next;
-    last = find_lastnode_stack(*stack);
-    last -> next = first;
-    first -> next = NULL;
-    ft_printf("rb\n");
+	t_stack_node	*first;
+	t_stack_node	*last;
+
+	first = *stack;
+	*stack = (*stack)->next;
+	last = find_lastnode_stack(*stack);
+	last->next = first;
+	first->next = NULL;
+	ft_printf("rb\n");
 }
 
-void    rr(t_stack_node **stack1, t_stack_node **stack2)
+void	rr(t_stack_node **stack1, t_stack_node **stack2)
 {
-    ra(stack1);
-    rb(stack2);
-    ft_printf("rr\n");
-
+	ra(stack1);
+	rb(stack2);
+	ft_printf("rr\n");
 }
 
 // int main(void)
@@ -105,5 +104,5 @@ void    rr(t_stack_node **stack1, t_stack_node **stack2)
 //     free(node5);
 //     free(node6);
 
-//     return 0;
+//     return (0);
 // }

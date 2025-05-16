@@ -6,12 +6,11 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 15:18:15 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/16 16:27:38 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/16 22:37:10 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	ft_stack_add_front(t_stack_node **stack, t_stack_node *new_node)
 {
@@ -40,12 +39,12 @@ void	ft_stack_copy(t_stack_node **stack, char **str)
 	i = 0;
 	while (str[++i])
 	{
-        if (!is_number(str[i]))
-        {
-            ft_putstr_fd("Error\n", 2);
-            free_stack(stack);
-            return ;
-        }
+		if (!is_number(str[i]))
+		{
+			ft_putstr_fd("Error\n", 2);
+			free_stack(stack);
+			return ;
+		}
 		value = ft_atoi(str[i]);
 		if (!check_error(stack, value))
 		{
@@ -63,16 +62,31 @@ void	ft_stack_copy(t_stack_node **stack, char **str)
 
 int	is_number(const char *s)
 {
-    int i = 0;
-    if (s[0] == '-' || s[0] == '+')
-        i++;
-    if (!s[i])
-        return (0); 
-    while (s[i])
-    {
-        if (!ft_isdigit(s[i]))
-            return (0);
-        i++;
-    }
-    return (1);
+	int i = 0;
+	if (s[0] == '-' || s[0] == '+')
+		i++;
+	if (!s[i])
+		return (0);
+	while (s[i])
+	{
+		if (!ft_isdigit(s[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+void	free_stack(t_stack_node **stack)
+{
+	t_stack_node *tmp;
+	t_stack_node *next;
+
+	tmp = *stack;
+	while (tmp)
+	{
+		next = tmp->next;
+		free(tmp);
+		tmp = next;
+	}
+	*stack = NULL;
 }
