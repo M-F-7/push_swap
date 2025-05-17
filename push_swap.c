@@ -6,12 +6,11 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 15:32:44 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 20:24:29 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 20:42:06 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int	main(int ac, char **av)
 {
@@ -45,8 +44,6 @@ int	main(int ac, char **av)
 	// free_stack(&b);
 	return (0);
 }
-
-
 
 // finir , node_costs, move_cheapest, put_min_top_stack
 

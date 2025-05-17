@@ -6,35 +6,34 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:32:38 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 18:52:05 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 20:41:53 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void pa(t_stack_node **stack1, t_stack_node **stack2)
+void	pa(t_stack_node **stack1, t_stack_node **stack2)
 {
-    t_stack_node *first;
+	t_stack_node	*first;
 
-    if (!stack2 || !*stack2)
-        return;
-    first = *stack2;
-    *stack2 = first->next;
-    ft_stack_add_front(stack1, first);
-    ft_putstr_fd("pa\n", 1);
+	if (!stack2 || !*stack2)
+		return ;
+	first = *stack2;
+	*stack2 = first->next;
+	ft_stack_add_front(stack1, first);
+	ft_putstr_fd("pa\n", 1);
 }
 
-void pb(t_stack_node **stack1, t_stack_node **stack2)
+void	pb(t_stack_node **stack1, t_stack_node **stack2)
 {
-    t_stack_node *first;
+	t_stack_node	*first;
 
-    if (!stack1 || !*stack1)
-        return;
-    first = *stack1;
-    *stack1 = first->next;
-    ft_stack_add_front(stack2, first);
-    ft_putstr_fd("pb\n", 1);
+	if (!stack1 || !*stack1)
+		return ;
+	first = *stack1;
+	*stack1 = first->next;
+	ft_stack_add_front(stack2, first);
+	ft_putstr_fd("pb\n", 1);
 }
 
 // int main(void)

@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:32:00 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 18:51:59 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 20:41:52 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_swap_stack(t_stack_node *stack)
 {
 	t_stack_node	*second;
-	int	tmp;
+	int				tmp;
 
 	if (ft_stacksize(stack) < 2)
 		return ;

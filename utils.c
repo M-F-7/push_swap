@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 22:22:31 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 18:51:44 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 20:41:59 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,16 @@ void	put_min_top_stack(t_stack_node **stack)
 
 	get_index(*stack);
 	min = find_little((*stack));
-	pos = min -> index;
-	if(pos <= ft_stacksize((*stack)) / 2)
+	pos = min->index;
+	if (pos <= ft_stacksize((*stack)) / 2)
 	{
-		while(pos-- > 0)
+		while (pos-- > 0)
 			ra(stack);
 	}
 	else
 	{
 		pos = ft_stacksize((*stack)) - pos;
-		while(pos-- > 0)
+		while (pos-- > 0)
 			rra(stack);
 	}
 }

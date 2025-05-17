@@ -6,41 +6,40 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:32:45 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 18:52:07 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 20:41:51 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	rotate(t_stack_node **stack)
+{
+	t_stack_node	*first;
+	t_stack_node	*last;
 
-void rotate(t_stack_node **stack)
-{
-    t_stack_node *first;
-    t_stack_node *last;
-
-    if (!*stack || !(*stack)->next)
-        return;
-    first = *stack;
-    *stack = first->next;
-    last = find_lastnode_stack(*stack);
-    last->next = first;
-    first->next = NULL;
+	if (!*stack || !(*stack)->next)
+		return ;
+	first = *stack;
+	*stack = first->next;
+	last = find_lastnode_stack(*stack);
+	last->next = first;
+	first->next = NULL;
 }
-void ra(t_stack_node **stack)
+void	ra(t_stack_node **stack)
 {
-    rotate(stack);
-    ft_putstr_fd("ra\n", 1);
+	rotate(stack);
+	ft_putstr_fd("ra\n", 1);
 }
-void rb(t_stack_node **stack)
+void	rb(t_stack_node **stack)
 {
-    rotate(stack);
-    ft_putstr_fd("rb\n", 1);
+	rotate(stack);
+	ft_putstr_fd("rb\n", 1);
 }
-void rr(t_stack_node **stack1, t_stack_node **stack2)
+void	rr(t_stack_node **stack1, t_stack_node **stack2)
 {
-    rotate(stack1);
-    rotate(stack2);
-    ft_putstr_fd("rr\n", 1);
+	rotate(stack1);
+	rotate(stack2);
+	ft_putstr_fd("rr\n", 1);
 }
 // int main(void)
 // {

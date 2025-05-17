@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 15:18:15 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 20:26:54 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 20:41:57 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ void	ft_stack_copy(t_stack_node **stack, char **str)
 		ft_stack_add_back(stack, curr);
 	}
 }
-
-
 
 int	is_number(const char *str)
 {

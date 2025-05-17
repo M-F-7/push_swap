@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 18:28:12 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 19:03:29 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 20:42:04 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,16 @@ void	get_index(t_stack_node *stack)
 
 void	find_cheapest(t_stack_node *stack)
 {
-	t_stack_node	*cheap = stack;
+	t_stack_node	*cheap;
 	int				min_cost;
+	int				current_cost;
+	t_stack_node	*tmp;
 
+	cheap = stack;
 	min_cost = calculate_total_cost(stack->cost_a, stack->cost_b);
 	while (stack)
 	{
-		int current_cost = calculate_total_cost(stack->cost_a, stack->cost_b);
+		current_cost = calculate_total_cost(stack->cost_a, stack->cost_b);
 		if (current_cost < min_cost)
 		{
 			min_cost = current_cost;
@@ -56,8 +59,7 @@ void	find_cheapest(t_stack_node *stack)
 		}
 		stack = stack->next;
 	}
-
-	t_stack_node *tmp = cheap;
+	tmp = cheap;
 	while (tmp)
 	{
 		tmp->cheapest = false;
@@ -97,29 +99,25 @@ void	set_target_node(t_stack_node *stack1, t_stack_node *stack2)
 	}
 }
 
-
-
-
-void nodes_costs(t_stack_node *stack1, t_stack_node *stack2)
+void	nodes_costs(t_stack_node *stack1, t_stack_node *stack2)
 {
-    int size_a = ft_stacksize(stack1);
-    int size_b = ft_stacksize(stack2);
+	int	size_a;
+	int	size_b;
 
-    while (stack2)
-    {
-		
-        if (stack2->index <= size_b / 2)
-            stack2->cost_b = stack2->index;
-        else
-            stack2->cost_b = stack2->index - size_b;
-
-        if (stack2->target_node->index <= size_a / 2)
-            stack2->cost_a = stack2->target_node->index;
-        else
-            stack2->cost_a = stack2->target_node->index - size_a;
-
-        stack2 = stack2->next;
-    }
+	size_a = ft_stacksize(stack1);
+	size_b = ft_stacksize(stack2);
+	while (stack2)
+	{
+		if (stack2->index <= size_b / 2)
+			stack2->cost_b = stack2->index;
+		else
+			stack2->cost_b = stack2->index - size_b;
+		if (stack2->target_node->index <= size_a / 2)
+			stack2->cost_a = stack2->target_node->index;
+		else
+			stack2->cost_a = stack2->target_node->index - size_a;
+		stack2 = stack2->next;
+	}
 }
 int	calculate_total_cost(int cost_a, int cost_b)
 {
