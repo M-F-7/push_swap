@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 15:32:44 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/16 23:01:40 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 10:35:58 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int ac, char **av)
 		return (0);
 	if (ac == 3 || ac == 4)
 	{
-		ft_check_number(&a);
+		sort_three(&a);
 		ft_print_stack(&a);
 		return (0);
 	}
@@ -50,9 +50,7 @@ int	main(int ac, char **av)
 	return (0);
 }
 
-
-
-//finir set_targer, node_costs, move_cheapest, put_min_top_stack
+// finir , node_costs, move_cheapest, put_min_top_stack
 
 // faire une fonction qui s occupe de faire les instructions avec l afichage si possible
 // faire une fonction qui free ta lst;

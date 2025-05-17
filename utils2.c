@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 15:18:15 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/16 22:37:10 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 10:46:00 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,18 @@ void	ft_stack_copy(t_stack_node **stack, char **str)
 	}
 }
 
-int	is_number(const char *s)
+int	is_number(const char *str)
 {
-	int i = 0;
-	if (s[0] == '-' || s[0] == '+')
+	int	i;
+
+	i = 0;
+	if (str[0] == '-' || str[0] == '+')
 		i++;
-	if (!s[i])
+	if (!str[i])
 		return (0);
-	while (s[i])
+	while (str[i])
 	{
-		if (!ft_isdigit(s[i]))
+		if (!ft_isdigit(str[i]))
 			return (0);
 		i++;
 	}

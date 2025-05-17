@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 22:22:31 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/16 23:00:32 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 10:43:52 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,25 @@ t_stack_node	*find_little(t_stack_node *stack)
 	return (little);
 }
 
-void	put_min_top_stack(t_stack_node *stack)
+void	put_min_top_stack(t_stack_node **stack)
 {
 	t_stack_node	*min;
+	int				pos;
 
-	min = NULL;
-	min->content = stack->content;
-	while (stack->next)
+	get_index(*stack);
+	min = find_little((*stack));
+	pos = min -> index;
+	if(pos <= ft_stacksize((*stack)) / 2)
 	{
-		if (stack->content < min->content)
-			min->content = stack->content;
-		stack = stack->next;
+		while(pos-- > 0)
+			ra(stack);
 	}
-	ft_stack_add_front(&stack, min);
+	else
+	{
+		pos = ft_stacksize((*stack)) - pos;
+		while(pos-- > 0)
+			rra(stack);
+	}
 }
 
 void	ft_print_stack(t_stack_node **stack)
@@ -85,7 +91,7 @@ void	ft_print_stack(t_stack_node **stack)
 //     int				i;
 
 //     if (!stack || !*stack)
-//         return;
+//         return ;
 //     min_node = find_little(*stack);
 //     tmp = *stack;
 //     pos = 0;
@@ -96,7 +102,7 @@ void	ft_print_stack(t_stack_node **stack)
 //         if (tmp == min_node)
 //         {
 //             pos = i;
-//             break;
+//             break ;
 //         }
 //         tmp = tmp->next;
 //         i++;

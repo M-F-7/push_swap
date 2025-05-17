@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:56:04 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/16 22:58:13 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 10:46:59 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_stack_node
 int						ft_stacksize(t_stack_node *stack);
 void					ft_print_stack(t_stack_node **stack);
 t_stack_node			*find_lastnode_stack(t_stack_node *stack);
-void					put_min_top_stack(t_stack_node *stack);
+void					put_min_top_stack(t_stack_node **stack);
 t_stack_node			*find_little(t_stack_node *stack);
 
 // utils2
@@ -57,7 +57,7 @@ void					free_stack(t_stack_node **stack);
 // errors
 int						check_double(t_stack_node **tab, int c);
 int						check_error(t_stack_node **tab, int c);
-void					ft_check_number(t_stack_node **stack);
+void					sort_three(t_stack_node **stack);
 
 // init stcack
 void					init_stack(t_stack_node *stack1, t_stack_node *stack2);

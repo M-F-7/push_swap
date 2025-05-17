@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-int	check_double(t_stack_node **tab, int last)
+int	check_double(t_stack_node **stack, int value)
 {
 	t_stack_node	*curr;
 
-	curr = *tab;
+	curr = *stack;
 	while (curr)
 	{
-		if (last == curr->content)
+		if (value == curr->content)
 		{
 			return (0);
 		}
@@ -28,14 +28,14 @@ int	check_double(t_stack_node **tab, int last)
 	return (1);
 }
 
-int	check_error(t_stack_node **tab, int content)
+int	check_error(t_stack_node **stack, int value)
 {
-	if (content > INT_MAX || content < INT_MIN)
+	if (value > INT_MAX || value < INT_MIN)
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (0);
 	}
-	if (!check_double(tab, content))
+	if (!check_double(stack, value))
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (0);
@@ -43,7 +43,7 @@ int	check_error(t_stack_node **tab, int content)
 	return (1);
 }
 
-void	ft_check_number(t_stack_node **stack)
+void	sort_three(t_stack_node **stack)
 {
 	int				first;
 	int				second;
