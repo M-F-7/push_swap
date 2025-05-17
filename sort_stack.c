@@ -6,9 +6,12 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 22:25:47 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 11:00:20 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 18:09:33 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
+
 
 #include "push_swap.h"
 
@@ -22,7 +25,7 @@ void	ft_sort_stack(t_stack_node **stack1, t_stack_node **stack2)
 	sort_three((stack1));
 	push_back_to_a(stack1, stack2);
 	// if (is_sorted((*stack1)) == 1)
-	// 	put_min_top_stack((stack1));
+	put_min_top_stack((stack1));
 }
 
 void	push_back_to_a(t_stack_node **stack1, t_stack_node **stack2)
@@ -41,7 +44,6 @@ void	push_back_to_a(t_stack_node **stack1, t_stack_node **stack2)
 	if (is_sorted((*stack1)) == 1)
 		put_min_top_stack(stack1);
 }
-
 int	is_sorted(t_stack_node *stack)
 {
 	while (stack->next)
@@ -72,7 +74,6 @@ t_stack_node *cheapest)
         cost_a++;
         cost_b++;
     }
-    // Rotations individuelles
     while (cost_a > 0)
     {
         ra(stack1);

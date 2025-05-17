@@ -6,49 +6,41 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:32:00 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/16 22:30:22 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 16:19:23 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap_stack(t_stack_node *a, t_stack_node *b)
+void	ft_swap_stack(t_stack_node *stack)
 {
+	t_stack_node	*second;
 	int	tmp;
 
-	tmp = a->content;
-	a->content = b->content;
-	b->content = tmp;
+	if (ft_stacksize(stack) < 2)
+		return ;
+	second = (stack)->next;
+	tmp = stack->content;
+	stack->content = second->content;
+	second->content = tmp;
 }
 void	sa(t_stack_node **stack)
 {
-	t_stack_node	*second;
-
-	if (ft_stacksize(*stack) < 2)
-		return ;
-	second = (*stack)->next;
-	ft_swap_stack(*stack, second);
-	ft_printf("sa\n");
+	ft_swap_stack(*stack);
+	ft_putstr_fd("sa\n", 1);
 }
 
 void	sb(t_stack_node **stack)
 {
-	t_stack_node	*second;
-
-	if (ft_stacksize(*stack) < 2)
-		return ;
-	second = (*stack)->next;
-	ft_swap_stack(*stack, second);
-	ft_printf("sb\n");
+	ft_swap_stack(*stack);
+	ft_putstr_fd("sb\n", 1);
 }
 
 void	ss(t_stack_node **stack1, t_stack_node **stack2)
 {
-	if (ft_stacksize(*stack1) < 2 || ft_stacksize(*stack2) < 2)
-		return ;
-	sa(stack1);
-	sb(stack2);
-	ft_printf("ss\n");
+	ft_swap_stack(*stack1);
+	ft_swap_stack(*stack2);
+	ft_putstr_fd("ss\n", 1);
 }
 
 // int main(void)

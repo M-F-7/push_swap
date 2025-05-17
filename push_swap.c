@@ -6,18 +6,12 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 15:32:44 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 10:35:58 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 17:52:44 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// ne pas oublier de traiter les arguments du main si ils sont sous la forme d une str ex de base
-//./a   1 2 45 3 6 8 ; ex a traiter ./a " 1 2 35 65 "-> il faut split
-
-// gerer les negtifs; gerer les cas d erreur genre int min et int max,	// autre que des int genre les char
-
-// peut etre fais sous forme de liste
 
 int	main(int ac, char **av)
 {

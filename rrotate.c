@@ -6,49 +6,43 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:32:42 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/16 22:30:25 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 16:21:39 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack_node **stack)
+void r_rotate(t_stack_node **stack)
 {
-	t_stack_node	*before_last;
-	t_stack_node	*last;
+    t_stack_node *before_last;
+    t_stack_node *last;
 
-	before_last = *stack;
-	last = find_lastnode_stack(*stack);
-	while (before_last->next && before_last->next->next)
-		before_last = before_last->next;
-	before_last->next = NULL;
-	last->next = *stack;
-	*stack = last;
-	ft_printf("rra\n");
+    if (!*stack || !(*stack)->next)
+        return;
+    before_last = *stack;
+    while (before_last->next && before_last->next->next)
+        before_last = before_last->next;
+    last = before_last->next;
+    before_last->next = NULL;
+    last->next = *stack;
+    *stack = last;
 }
-
-void	rrb(t_stack_node **stack)
+void rra(t_stack_node **stack)
 {
-	t_stack_node	*before_last;
-	t_stack_node	*last;
-
-	before_last = *stack;
-	last = find_lastnode_stack(*stack);
-	while (before_last->next && before_last->next->next)
-		before_last = before_last->next;
-	before_last->next = NULL;
-	last->next = *stack;
-	*stack = last;
-	ft_printf("rrb\n");
+    r_rotate(stack);
+    ft_putstr_fd("rra\n", 1);
 }
-
-void	rrr(t_stack_node **stack1, t_stack_node **stack2)
+void rrb(t_stack_node **stack)
 {
-	rra(stack1);
-	rrb(stack2);
-	ft_printf("rrr\n");
+    r_rotate(stack);
+    ft_putstr_fd("rrb\n", 1);
 }
-
+void rrr(t_stack_node **stack1, t_stack_node **stack2)
+{
+    r_rotate(stack1);
+    r_rotate(stack2);
+    ft_putstr_fd("rrr\n", 1);
+}
 // int main(void)
 // {
 //     t_stack_node *node1 = malloc(sizeof(t_stack_node));

@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 18:28:12 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 11:23:34 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 18:09:23 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	init_stack(t_stack_node *stack1, t_stack_node *stack2)
 {
 	get_index(stack1);
 	get_index(stack2);
-	find_cheapest(stack2);
-	nodes_costs(stack1, stack2);
 	set_target_node(stack1, stack2);
+	nodes_costs(stack1, stack2);
+	find_cheapest(stack2);
 }
 
 void	get_index(t_stack_node *stack)
@@ -42,36 +42,29 @@ void	get_index(t_stack_node *stack)
 
 void	find_cheapest(t_stack_node *stack)
 {
-	t_stack_node	*cheap;
+	t_stack_node	*cheap = stack;
+	int				min_cost;
 
-	cheap = stack;
+	min_cost = calculate_total_cost(stack->cost_a, stack->cost_b);
 	while (stack)
 	{
-		stack->cheapest = false;
-		if (stack->cost < cheap->cost)
+		int current_cost = calculate_total_cost(stack->cost_a, stack->cost_b);
+		if (current_cost < min_cost)
+		{
+			min_cost = current_cost;
 			cheap = stack;
+		}
 		stack = stack->next;
+	}
+
+	t_stack_node *tmp = cheap;
+	while (tmp)
+	{
+		tmp->cheapest = false;
+		tmp = tmp->next;
 	}
 	if (cheap)
 		cheap->cheapest = true;
-}
-
-
-void	nodes_costs(t_stack_node *stack1, t_stack_node *stack2)
-{
-	get_index(stack1);
-	get_index(stack2);
-	while (stack2)
-	{
-		stack2->cost = stack2->index;
-		if (!(stack2->above_median))
-			stack2->cost = ft_stacksize(stack2) - stack2->index;
-		if (stack2->target_node->above_median)
-			stack2->cost += stack2->target_node->index;
-		else
-			stack2->cost += ft_stacksize(stack1) - stack2->target_node->index;
-		stack2 = stack2->next;
-	}
 }
 
 void	set_target_node(t_stack_node *stack1, t_stack_node *stack2)
@@ -85,10 +78,10 @@ void	set_target_node(t_stack_node *stack1, t_stack_node *stack2)
 	{
 		curr_a = stack1;
 		best_target = NULL;
-		best_diff = 2147483647; 
+		best_diff = 2147483647;
 		while (curr_a)
 		{
-			diff = curr_a->content - stack2->content; //pour trouver le plus petit plus grand 
+			diff = curr_a->content - stack2->content;
 			if (diff > 0 && diff < best_diff)
 			{
 				best_diff = diff;
@@ -104,22 +97,44 @@ void	set_target_node(t_stack_node *stack1, t_stack_node *stack2)
 	}
 }
 
-// void	nodes_costs(t_stack_node *stack1, t_stack_node *stack2)
-// {
-// 	int size_a = ft_stacksize(stack1);
-// 	int size_b = ft_stacksize(stack2);
 
-// 	while (stack2)
-// 	{
-// 		if (stack2->index <= size_b / 2)
-// 			stack2->cost_b = stack2->index;
-// 		else
-// 			stack2->cost_b = -(size_b - stack2->index);
-// 		if (stack2->target_node->index <= size_a / 2)
-// 			stack2->cost_a = stack2->target_node->index;
-// 		else
-// 			stack2->cost_a = -(size_a - stack2->target_node->index);
 
-// 		stack2 = stack2->next;
-// 	}
-// }
+
+void nodes_costs(t_stack_node *stack1, t_stack_node *stack2)
+{
+    int size_a = ft_stacksize(stack1);
+    int size_b = ft_stacksize(stack2);
+
+    while (stack2)
+    {
+        if (stack2->index <= size_b / 2)
+            stack2->cost_b = stack2->index;
+        else
+            stack2->cost_b = stack2->index - size_b;
+
+        if (stack2->target_node->index <= size_a / 2)
+            stack2->cost_a = stack2->target_node->index;
+        else
+            stack2->cost_a = stack2->target_node->index - size_a;
+
+        stack2 = stack2->next;
+    }
+}
+int	calculate_total_cost(int cost_a, int cost_b)
+{
+	if ((cost_a >= 0 && cost_b >= 0) || (cost_a <= 0 && cost_b <= 0))
+	{
+		if (cost_a > cost_b)
+			return (cost_a);
+		else
+			return (cost_b);
+	}
+	else
+	{
+		if (cost_a < 0)
+			cost_a = -cost_a;
+		if (cost_b < 0)
+			cost_b = -cost_b;
+		return (cost_a + cost_b);
+	}
+}

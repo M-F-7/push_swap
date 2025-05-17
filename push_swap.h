@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:56:04 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 10:46:59 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 17:52:46 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void					push_back_to_a(t_stack_node **a, t_stack_node **b);
 int						is_sorted(t_stack_node *stack);
 
 // commands
-void					ft_swap_stack(t_stack_node *a, t_stack_node *b);
+void					ft_swap_stack(t_stack_node *a);
 void					sa(t_stack_node **stack);
 void					sb(t_stack_node **stack);
 void					ss(t_stack_node **stack1, t_stack_node **stack2);
@@ -92,4 +92,8 @@ void					rra(t_stack_node **stack);
 void					rrb(t_stack_node **stack);
 void					rrr(t_stack_node **stack1, t_stack_node **stack2);
 
+void rotate(t_stack_node **stack);
+void r_rotate(t_stack_node **stack);
+
+int	calculate_total_cost(int cost_a, int cost_b);
 #endif

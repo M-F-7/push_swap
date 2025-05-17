@@ -6,45 +6,42 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:32:45 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/16 22:30:27 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 16:21:32 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stack_node **stack)
+
+void rotate(t_stack_node **stack)
 {
-	t_stack_node	*first;
-	t_stack_node	*last;
+    t_stack_node *first;
+    t_stack_node *last;
 
-	first = *stack;
-	*stack = (*stack)->next;
-	last = find_lastnode_stack(*stack);
-	last->next = first;
-	first->next = NULL;
-	ft_printf("ra\n");
+    if (!*stack || !(*stack)->next)
+        return;
+    first = *stack;
+    *stack = first->next;
+    last = find_lastnode_stack(*stack);
+    last->next = first;
+    first->next = NULL;
 }
-
-void	rb(t_stack_node **stack)
+void ra(t_stack_node **stack)
 {
-	t_stack_node	*first;
-	t_stack_node	*last;
-
-	first = *stack;
-	*stack = (*stack)->next;
-	last = find_lastnode_stack(*stack);
-	last->next = first;
-	first->next = NULL;
-	ft_printf("rb\n");
+    rotate(stack);
+    ft_putstr_fd("ra\n", 1);
 }
-
-void	rr(t_stack_node **stack1, t_stack_node **stack2)
+void rb(t_stack_node **stack)
 {
-	ra(stack1);
-	rb(stack2);
-	ft_printf("rr\n");
+    rotate(stack);
+    ft_putstr_fd("rb\n", 1);
 }
-
+void rr(t_stack_node **stack1, t_stack_node **stack2)
+{
+    rotate(stack1);
+    rotate(stack2);
+    ft_putstr_fd("rr\n", 1);
+}
 // int main(void)
 // {
 //     t_stack_node *node1 = malloc(sizeof(t_stack_node));
