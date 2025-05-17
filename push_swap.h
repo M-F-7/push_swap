@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:56:04 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 17:52:46 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 20:35:03 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,10 @@ void rotate(t_stack_node **stack);
 void r_rotate(t_stack_node **stack);
 
 int	calculate_total_cost(int cost_a, int cost_b);
+void	push_initial(t_stack_node **a, t_stack_node **b);
+
+
+int	get_max_pos(t_stack_node *a);
+int	get_min_pos(t_stack_node *a);
+
 #endif

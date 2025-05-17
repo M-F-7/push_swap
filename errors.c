@@ -41,7 +41,7 @@ int	check_error(t_stack_node **stack, int value)
 		return (0);
 	}
 	return (1);
-}
+} 
  
 void	sort_three(t_stack_node **stack)
 {

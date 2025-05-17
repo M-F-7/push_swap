@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 18:28:12 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 18:09:23 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 19:03:29 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ void nodes_costs(t_stack_node *stack1, t_stack_node *stack2)
 
     while (stack2)
     {
+		
         if (stack2->index <= size_b / 2)
             stack2->cost_b = stack2->index;
         else
