@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 15:18:15 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 20:41:57 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/18 15:36:58 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,11 @@ void	ft_stack_copy(t_stack_node **stack, char **str)
 		if (!is_number(str[i]))
 		{
 			ft_putstr_fd("Error\n", 2);
-			free_stack(stack);
-			return ;
+			return (free_stack(stack));
 		}
 		value = ft_atoi(str[i]);
 		if (!check_error(stack, value))
-		{
-			free_stack(stack);
-			return ;
-		}
+			return (free_stack(stack));
 		curr = malloc(sizeof(t_stack_node));
 		if (!curr)
 			return ;
@@ -80,8 +76,8 @@ int	is_number(const char *str)
 
 void	free_stack(t_stack_node **stack)
 {
-	t_stack_node *tmp;
-	t_stack_node *next;
+	t_stack_node	*tmp;
+	t_stack_node	*next;
 
 	tmp = *stack;
 	while (tmp)

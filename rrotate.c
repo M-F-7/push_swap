@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:32:42 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 20:41:49 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/18 15:30:06 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,19 @@ void	r_rotate(t_stack_node **stack)
 	last->next = *stack;
 	*stack = last;
 }
+
 void	rra(t_stack_node **stack)
 {
 	r_rotate(stack);
 	ft_putstr_fd("rra\n", 1);
 }
+
 void	rrb(t_stack_node **stack)
 {
 	r_rotate(stack);
 	ft_putstr_fd("rrb\n", 1);
 }
+
 void	rrr(t_stack_node **stack1, t_stack_node **stack2)
 {
 	r_rotate(stack1);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.last                                           :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 11:26:27 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/16 15:00:41 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/18 15:17:04 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	check_double(t_stack_node **stack, int value)
 
 int	check_error(t_stack_node **stack, int value)
 {
-	if (value > INT_MAX || value < INT_MIN)
+	if (!(value > INT_MIN && value < INT_MAX))
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (0);
@@ -43,38 +43,15 @@ int	check_error(t_stack_node **stack, int value)
 	return (1);
 }
 
-void	sort_three(t_stack_node **stack)
+void	sort_three(t_stack_node **a)
 {
-	int				first;
-	int				second;
-	t_stack_node	*last_node;
-	int				last;
+	t_stack_node	*biggest_node;
 
-	first = (*stack)->content;
-	second = (*stack)->next->content;
-	last_node = find_lastnode_stack((*stack));
-	last = last_node->content;
-	if (last == second)
-	{
-		if (second < first)
-			sa(stack);
-	}
-	if (first < second && second < last)
-		return ;
-	if (first > second && second < last && first < last)
-		sa(stack);
-	else if (first > second && second > last)
-	{
-		sa(stack);
-		rra(stack);
-	}
-	else if (first > second && second < last && first > last)
-		ra(stack);
-	else if (first < second && second > last && first < last)
-	{
-		sa(stack);
-		ra(stack);
-	}
-	else if (first < second && second > last && first > last)
-		rra(stack);
+	biggest_node = find_big(*a);
+	if (biggest_node == *a)
+		ra(a);
+	else if ((*a)->next == biggest_node)
+		rra(a);
+	if ((*a)->content > (*a)->next->content)
+		sa(a);
 }

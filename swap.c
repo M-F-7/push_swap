@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:32:00 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 20:41:52 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/18 15:34:36 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_swap_stack(t_stack_node *stack)
 	stack->content = second->content;
 	second->content = tmp;
 }
+
 void	sa(t_stack_node **stack)
 {
 	ft_swap_stack(*stack);

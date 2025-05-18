@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 22:25:47 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 21:39:30 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/18 15:45:10 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,11 @@ void	ft_sort_stack(t_stack_node **stack1, t_stack_node **stack2)
 	push_back_to_a(stack1, stack2);
 	put_min_top_stack((stack1));
 }
+
 void	push_initial(t_stack_node **a, t_stack_node **b)
 {
-	int	size;
-	int	chunk;
-
-	size = ft_stacksize(*a);
-	chunk = 0;
 	while (ft_stacksize(*a) > 3)
-	{
-		if ((*a)->content <= chunk || (*a)->content >= size - chunk)
-		{
-			pb(a, b);
-			if ((*b)->content >= size - chunk)
-				rb(b);
-			chunk++;
-		}
-		else
-			ra(a);
-	}
+		pb(a, b);
 }
 
 void	push_back_to_a(t_stack_node **stack1, t_stack_node **stack2)
@@ -54,6 +40,7 @@ void	push_back_to_a(t_stack_node **stack1, t_stack_node **stack2)
 			move_cheapest(stack1, stack2, node);
 	}
 }
+
 int	is_sorted(t_stack_node *stack)
 {
 	while (stack->next)
@@ -64,48 +51,32 @@ int	is_sorted(t_stack_node *stack)
 	}
 	return (1);
 }
+
 void	move_cheapest(t_stack_node **a, t_stack_node **b,
 		t_stack_node *cheapest)
 {
-	int cost_a = cheapest->cost_a;
-	int cost_b = cheapest->cost_b;
+	int	pos;
+	int	safety;
 
-	// Rotations combinées
-	while (cost_a > 0 && cost_b > 0)
+	safety = 0;
+	while (*b != cheapest && safety++ < ft_stacksize(*b) + 2)
 	{
-		rr(a, b);
-		cost_a--;
-		cost_b--;
+		get_index(*b);
+		pos = cheapest->index;
+		if (pos <= ft_stacksize(*b) / 2)
+			rb(b);
+		else
+			rrb(b);
 	}
-	while (cost_a < 0 && cost_b < 0)
+	safety = 0;
+	while (*a != cheapest->target_node && safety++ < ft_stacksize(*a) + 2)
 	{
-		rrr(a, b);
-		cost_a++;
-		cost_b++;
+		get_index(*a);
+		pos = cheapest->target_node->index;
+		if (pos <= ft_stacksize(*a) / 2)
+			ra(a);
+		else
+			rra(a);
 	}
-
-	// Rotations individuelles
-	while (cost_a > 0)
-	{
-		ra(a);
-		cost_a--;
-	}
-	while (cost_a < 0)
-	{
-		rra(a);
-		cost_a++;
-	}
-	while (cost_b > 0)
-	{
-		rb(b);
-		cost_b--;
-	}
-	while (cost_b < 0)
-	{
-		rrb(b);
-		cost_b++;
-	}
-
-	// Push l'élément dans A
 	pa(a, b);
 }

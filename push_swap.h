@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:56:04 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 21:39:50 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/18 15:29:51 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct s_stack_node
 	int					index;
 	struct s_stack_node	*next;
 	bool				above_median;
-	// struct s_stack_node	*previous;
 	struct s_stack_node	*target_node;
 }						t_stack_node;
 
@@ -44,6 +43,7 @@ void					ft_print_stack(t_stack_node **stack);
 t_stack_node			*find_lastnode_stack(t_stack_node *stack);
 void					put_min_top_stack(t_stack_node **stack);
 t_stack_node			*find_little(t_stack_node *stack);
+t_stack_node			*find_big(t_stack_node *stack);
 
 // utils2
 void					ft_stack_add_front(t_stack_node **stack,
@@ -60,16 +60,16 @@ int						check_error(t_stack_node **tab, int c);
 void					sort_three(t_stack_node **stack);
 
 // init stcack
-void					init_stack(t_stack_node *stack1, t_stack_node *stack2);
+void					init_stack(t_stack_node *a, t_stack_node *b);
 void					get_index(t_stack_node *stack);
-void					set_target_node(t_stack_node *stack1,
-							t_stack_node *stack2);
-void					nodes_costs(t_stack_node *stack1, t_stack_node *stack2);
+void					set_target_node(t_stack_node *a,
+							t_stack_node *b);
+void					nodes_costs(t_stack_node *a, t_stack_node *b);
 void					find_cheapest(t_stack_node *stack);
 
 // sort_stack
-void					ft_sort_stack(t_stack_node **stack1,
-							t_stack_node **stack2);
+void					ft_sort_stack(t_stack_node **a,
+							t_stack_node **b);
 void					move_cheapest(t_stack_node **a, t_stack_node **b,
 							t_stack_node *cheapest);
 void					push_back_to_a(t_stack_node **a, t_stack_node **b);
@@ -79,18 +79,18 @@ int						is_sorted(t_stack_node *stack);
 void					ft_swap_stack(t_stack_node *a);
 void					sa(t_stack_node **stack);
 void					sb(t_stack_node **stack);
-void					ss(t_stack_node **stack1, t_stack_node **stack2);
+void					ss(t_stack_node **a, t_stack_node **b);
 
-void					pa(t_stack_node **stack1, t_stack_node **stack2);
-void					pb(t_stack_node **stack1, t_stack_node **stack2);
+void					pa(t_stack_node **a, t_stack_node **b);
+void					pb(t_stack_node **a, t_stack_node **b);
 
 void					ra(t_stack_node **stack);
 void					rb(t_stack_node **stack);
-void					rr(t_stack_node **stack1, t_stack_node **stack2);
+void					rr(t_stack_node **a, t_stack_node **b);
 
 void					rra(t_stack_node **stack);
 void					rrb(t_stack_node **stack);
-void					rrr(t_stack_node **stack1, t_stack_node **stack2);
+void					rrr(t_stack_node **a, t_stack_node **b);
 
 void					rotate(t_stack_node **stack);
 void					r_rotate(t_stack_node **stack);

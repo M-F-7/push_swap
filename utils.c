@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 22:22:31 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 20:41:59 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/18 15:45:19 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,26 @@ t_stack_node	*find_little(t_stack_node *stack)
 	return (little);
 }
 
+t_stack_node	*find_big(t_stack_node *stack)
+{
+	int				max;
+	t_stack_node	*max_node;
+
+	if (!stack)
+		return (NULL);
+	max = INT_MIN;
+	while (stack)
+	{
+		if (stack->content > max)
+		{
+			max = stack->content;
+			max_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (max_node);
+}
+
 void	put_min_top_stack(t_stack_node **stack)
 {
 	t_stack_node	*min;
@@ -69,53 +89,15 @@ void	put_min_top_stack(t_stack_node **stack)
 	}
 }
 
-void	ft_print_stack(t_stack_node **stack)
-{
-	t_stack_node	*tmp;
-
-	tmp = *stack;
-	while (tmp)
-	{
-		ft_printf("%d ", tmp->content);
-		tmp = tmp->next;
-	}
-	ft_printf("\n");
-}
-
-// void	put_min_top_stack(t_stack_node **stack)
+// void	ft_print_stack(t_stack_node **stack)
 // {
-//     t_stack_node	*min_node;
-//     int				pos;
-//     int				size;
-//     t_stack_node	*tmp;
-//     int				i;
+// 	t_stack_node	*tmp;
 
-//     if (!stack || !*stack)
-//         return ;
-//     min_node = find_little(*stack);
-//     tmp = *stack;
-//     pos = 0;
-//     i = 0;
-//     size = ft_stacksize(*stack);
-//     while (tmp)
-//     {
-//         if (tmp == min_node)
-//         {
-//             pos = i;
-//             break ;
-//         }
-//         tmp = tmp->next;
-//         i++;
-//     }
-//     if (pos <= size / 2)
-//     {
-//         while (pos-- > 0)
-//             ra(stack);
-//     }
-//     else
-//     {
-//         pos = size - pos;
-//         while (pos-- > 0)
-//             rra(stack);
-//     }
+// 	tmp = *stack;
+// 	while (tmp)
+// 	{
+// 		ft_printf("%d ", tmp->content);
+// 		tmp = tmp->next;
+// 	}
+// 	ft_printf("\n");
 // }
