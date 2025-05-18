@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 18:28:12 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/18 15:29:03 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/19 01:33:45 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	set_target_node(t_stack_node *a, t_stack_node *b)
 	while (b)
 	{
 		curr_a = a;
+		best_target = NULL;
 		best_diff = INT_MAX;
 		while (curr_a)
 		{

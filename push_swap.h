@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:56:04 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/18 15:29:51 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/19 01:27:01 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,26 +50,26 @@ void					ft_stack_add_front(t_stack_node **stack,
 							t_stack_node *new_node);
 void					ft_stack_add_back(t_stack_node **stack,
 							t_stack_node *new_node);
-void					ft_stack_copy(t_stack_node **stack, char **str);
+int						ft_stack_copy(t_stack_node **stack, char **str);
 int						is_number(const char *s);
 void					free_stack(t_stack_node **stack);
 
 // errors
-int						check_double(t_stack_node **tab, int c);
+int						check_double(const char *str);
 int						check_error(t_stack_node **tab, int c);
 void					sort_three(t_stack_node **stack);
+int						is_valid_int(const char *str);
+void					free_tab(char **tab);
 
 // init stcack
 void					init_stack(t_stack_node *a, t_stack_node *b);
 void					get_index(t_stack_node *stack);
-void					set_target_node(t_stack_node *a,
-							t_stack_node *b);
+void					set_target_node(t_stack_node *a, t_stack_node *b);
 void					nodes_costs(t_stack_node *a, t_stack_node *b);
 void					find_cheapest(t_stack_node *stack);
 
 // sort_stack
-void					ft_sort_stack(t_stack_node **a,
-							t_stack_node **b);
+void					ft_sort_stack(t_stack_node **a, t_stack_node **b);
 void					move_cheapest(t_stack_node **a, t_stack_node **b,
 							t_stack_node *cheapest);
 void					push_back_to_a(t_stack_node **a, t_stack_node **b);

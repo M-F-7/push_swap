@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 15:18:15 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/18 15:36:58 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/19 01:20:15 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,30 +30,60 @@ void	ft_stack_add_back(t_stack_node **stack, t_stack_node *new_node)
 	(*stack)->next = new_node;
 }
 
-void	ft_stack_copy(t_stack_node **stack, char **str)
+// void	ft_stack_copy(t_stack_node **stack, char **str)
+// {
+// 	t_stack_node	*curr;
+// 	int				i;
+// 	int				value;
+
+// 	i = 0;
+// 	while (str[i])
+// 	{
+// 		if (!is_number(str[i]) || !is_valid_int(str[i]))
+// 		{
+// 			ft_putstr_fd("Error\n", 2);
+// 			return (free_stack(stack));
+// 		}
+// 		value = ft_atoi(str[i]);
+// 		if (!check_error(stack, value))
+// 			return (free_stack(stack));
+// 		curr = malloc(sizeof(t_stack_node));
+// 		if (!curr)
+// 			return ;
+// 		curr->content = value;
+// 		curr->next = NULL;
+// 		ft_stack_add_back(stack, curr);
+// 		i++;
+// 	}
+// }
+
+int	ft_stack_copy(t_stack_node **stack, char **str)
 {
 	t_stack_node	*curr;
 	int				i;
 	int				value;
 
 	i = 0;
-	while (str[++i])
+	while (str[i])
 	{
-		if (!is_number(str[i]))
+		if (!is_number(str[i]) || !is_valid_int(str[i]) || check_double(str[i]))
 		{
 			ft_putstr_fd("Error\n", 2);
-			return (free_stack(stack));
+			free_stack(stack);
+			return (0);
 		}
-		value = ft_atoi(str[i]);
-		if (!check_error(stack, value))
-			return (free_stack(stack));
+		value = ft_atoi(str[i++]);
 		curr = malloc(sizeof(t_stack_node));
 		if (!curr)
-			return ;
+		{
+			free_stack(stack);
+			return (0);
+		}
 		curr->content = value;
 		curr->next = NULL;
 		ft_stack_add_back(stack, curr);
 	}
+	return (1);
 }
 
 int	is_number(const char *str)
