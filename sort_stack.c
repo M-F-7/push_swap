@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 22:25:47 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/17 20:42:02 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/17 21:39:30 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ void	ft_sort_stack(t_stack_node **stack1, t_stack_node **stack2)
 	push_initial(stack1, stack2);
 	sort_three((stack1));
 	push_back_to_a(stack1, stack2);
-	if (is_sorted((*stack1)) == 1)
-		put_min_top_stack((stack1));
+	put_min_top_stack((stack1));
 }
 void	push_initial(t_stack_node **a, t_stack_node **b)
 {
@@ -27,14 +26,13 @@ void	push_initial(t_stack_node **a, t_stack_node **b)
 
 	size = ft_stacksize(*a);
 	chunk = 0;
-	// int	chunk_size = size / 8 + 10; // Ajuste ce facteur pour 100 ou 500
 	while (ft_stacksize(*a) > 3)
 	{
 		if ((*a)->content <= chunk || (*a)->content >= size - chunk)
 		{
 			pb(a, b);
 			if ((*b)->content >= size - chunk)
-				rb(b); // Place les grands en bas de B
+				rb(b);
 			chunk++;
 		}
 		else
