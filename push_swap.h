@@ -6,16 +6,16 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:56:04 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/19 01:27:01 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/19 01:44:07 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/gnl/get_next_line.h"
-# include "../libft/libft.h"
-# include "../libft/printf/ft_printf.h"
+# include "libft/gnl/get_next_line.h"
+# include "libft/libft.h"
+# include "libft/printf/ft_printf.h"
 # include <limits.h>
 # include <stdarg.h>
 # include <stdbool.h>
