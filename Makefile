@@ -12,27 +12,27 @@ SRC = push_swap.c \
 		errors.c \
 		init_stack.c \
 		sort_stack.c \
-		../libft/printf/ft_printf.c \
-		../libft/printf/ft_putchar.c \
-		../libft/printf/ft_putstr.c \
-		../libft/printf/ft_putnbr.c \
-		../libft/printf/ft_putnbr_base.c \
-		../libft/printf/ft_putptr.c \
-		../libft/printf/ft_putnbr_us.c \
-		../libft/ft_split.c \
-		../libft/ft_strlen.c \
-		../libft/ft_atoi.c \
-		../libft/ft_isdigit.c \
-		../libft/ft_putstr_fd.c \
-		../libft/ft_putchar_fd.c 
+		libft/printf/ft_printf.c \
+		libft/printf/ft_putchar.c \
+		libft/printf/ft_putstr.c \
+		libft/printf/ft_putnbr.c \
+		libft/printf/ft_putnbr_base.c \
+		libft/printf/ft_putptr.c \
+		libft/printf/ft_putnbr_us.c \
+		libft/ft_split.c \
+		libft/ft_strlen.c \
+		libft/ft_atoi.c \
+		libft/ft_isdigit.c \
+		libft/ft_putstr_fd.c \
+		libft/ft_putchar_fd.c 
 
 
 
 OBJ = $(SRC:.c=.o)
 
 INC = push_swap.h \
- 	../libft/libft.h \
-	../libft/printf/ft_printf.h
+ 	libft/libft.h \
+	libft/printf/ft_printf.h
 
 CC = cc
 
