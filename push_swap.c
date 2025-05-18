@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 15:32:44 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/18 15:38:07 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/18 15:48:40 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	ft_sort_stack(&a, &b);
-	ft_print_stack(&a);
 	free_stack(&a);
 	return (0);
 }
