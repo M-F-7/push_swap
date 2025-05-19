@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 20:18:32 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/19 20:51:43 by mfernand         ###   ########.fr       */
+/*   Created: 2025/05/19 20:16:39 by mfernand          #+#    #+#             */
+/*   Updated: 2025/05/19 20:57:57 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	sort_three(t_stack_node **a)
 {
-	t_stack_node	*a;
-	t_stack_node	*b;
+	t_stack_node	*biggest_node;
 
-	a = NULL;
-	b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (1);
-	else if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	init_stack_a(&a, argv + 1);
-	if (!is_sorted(a))
+	biggest_node = find_max(*a);
+	if (biggest_node == *a)
+		ra(a, false);
+	else if ((*a)->next == biggest_node)
+		rra(a, false);
+	if ((*a)->value > (*a)->next->value)
+		sa(a, false);
+}
+
+void	min_on_top(t_stack_node **a)
+{
+	while ((*a)->value != find_min(*a)->value)
 	{
-		if (stack_size(a) == 2)
-			sa(&a, false);
-		else if (stack_size(a) == 3)
-			sort_three(&a);
+		if (find_min(*a)->above_median)
+			ra(a, false);
 		else
-			sort_stacks(&a, &b);
+			rra(a, false);
 	}
-	free_stack(&a);
-	return (0);
 }

@@ -6,12 +6,14 @@ SRC = push_swap.c \
 		swap.c \
 		push.c \
 		rotate.c \
-		rrotate.c \
-		utils.c \
-		utils2.c \
+		rev_rotate.c \
+		stack_utils.c \
 		errors.c \
-		init_stack.c \
-		sort_stack.c \
+		init_a_to_b.c \
+		init_b_to_a.c \
+		sort_stacks.c \
+		sort_three.c \
+		stack_init.c \
 		libft/printf/ft_printf.c \
 		libft/printf/ft_putchar.c \
 		libft/printf/ft_putstr.c \
