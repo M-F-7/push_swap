@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 15:18:15 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/19 02:04:09 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/19 02:19:35 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ int	ft_stack_copy(t_stack_node **stack, char **str)
 	i = 0;
 	while (str[i])
 	{
-		if (!is_number(str[i]) || !is_valid_int(str[i]) /*|| !check_double(str[i])*/)
+		if (!is_number(str[i]) || !is_valid_int(str[i])
+			/*|| !check_double(str[i])*/)
 		{
 			ft_putstr_fd("Error\n", 2);
 			free_stack(stack);
