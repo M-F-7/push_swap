@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 20:16:32 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/19 20:55:23 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/19 22:15:54 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,17 +72,17 @@ t_stack_node	*get_cheapest(t_stack_node *stack)
 	return (NULL);
 }
 
-void	init_stack_a(t_stack_node **a, char **argv)
+void	init_stack_a(t_stack_node **a, char **av)
 {
 	long	n;
 	int		i;
 
 	i = 0;
-	while (argv[i])
+	while (av[i])
 	{
-		if (error_syntax(argv[i]))
+		if (error_syntax(av[i]))
 			free_errors(a);
-		n = ft_atol(argv[i]);
+		n = ft_atol(av[i]);
 		if (n > INT_MAX || n < INT_MIN)
 			free_errors(a);
 		if (error_duplicate(*a, (int)n))

@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 20:22:12 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/19 20:59:31 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/19 22:33:53 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ int						error_syntax(char *str_n);
 int						error_duplicate(t_stack_node *a, int n);
 void					free_stack(t_stack_node **stack);
 void					free_errors(t_stack_node **a);
+void					free_tab(char **tab);
 
+void					check_sort(t_stack_node *a, t_stack_node *b);
 void					init_stack_a(t_stack_node **a, char **argv);
 char					**ft_split(const char *s, char c);
 
