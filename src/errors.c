@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 21:52:57 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/19 21:57:58 by mfernand         ###   ########.fr       */
+/*   Created: 2025/05/20 21:21:32 by mfernand          #+#    #+#             */
+/*   Updated: 2025/05/20 21:22:18 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	error_syntax(char *str_n)
 {

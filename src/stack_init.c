@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 20:16:32 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/19 22:15:54 by mfernand         ###   ########.fr       */
+/*   Created: 2025/05/20 21:21:38 by mfernand          #+#    #+#             */
+/*   Updated: 2025/05/20 21:26:56 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 long	ft_atol(const char *s)
 {
@@ -19,8 +19,7 @@ long	ft_atol(const char *s)
 
 	result = 0;
 	sign = 1;
-	while (*s == ' ' || *s == '\t' || *s == '\n' || *s == '\r' || *s == '\f'
-		|| *s == '\v')
+	while ((*s == 32) || (*s >= 9 && *s <= 13))
 		s++;
 	if (*s == '-' || *s == '+')
 	{
@@ -59,6 +58,26 @@ void	append_node(t_stack_node **stack, int n)
 	}
 }
 
+void	init_stack_a(t_stack_node **a, char **argv)
+{
+	long	n;
+	int		i;
+
+	i = 0;
+	while (argv[i])
+	{
+		if (error_syntax(argv[i]))
+			free_errors(a);
+		n = ft_atol(argv[i]);
+		if (n > INT_MAX || n < INT_MIN)
+			free_errors(a);
+		if (error_duplicate(*a, (int)n))
+			free_errors(a);
+		append_node(a, (int)n);
+		i++;
+	}
+}
+
 t_stack_node	*get_cheapest(t_stack_node *stack)
 {
 	if (!stack)
@@ -70,26 +89,6 @@ t_stack_node	*get_cheapest(t_stack_node *stack)
 		stack = stack->next;
 	}
 	return (NULL);
-}
-
-void	init_stack_a(t_stack_node **a, char **av)
-{
-	long	n;
-	int		i;
-
-	i = 0;
-	while (av[i])
-	{
-		if (error_syntax(av[i]))
-			free_errors(a);
-		n = ft_atol(av[i]);
-		if (n > INT_MAX || n < INT_MIN)
-			free_errors(a);
-		if (error_duplicate(*a, (int)n))
-			free_errors(a);
-		append_node(a, (int)n);
-		i++;
-	}
 }
 
 void	sort_before_push(t_stack_node **stack, t_stack_node *top_node,

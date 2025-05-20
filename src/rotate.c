@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 20:19:46 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/19 20:55:40 by mfernand         ###   ########.fr       */
+/*   Created: 2025/05/20 21:21:47 by mfernand          #+#    #+#             */
+/*   Updated: 2025/05/20 21:22:52 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	rotate(t_stack_node **stack)
 {

@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 20:16:41 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/19 20:55:56 by mfernand         ###   ########.fr       */
+/*   Created: 2025/05/20 21:21:27 by mfernand          #+#    #+#             */
+/*   Updated: 2025/05/20 21:22:37 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-static void	swap(t_stack_node **head)
+void	swap(t_stack_node **head)
 {
 	if (!*head || !(*head)->next)
 		return ;
@@ -21,6 +21,7 @@ static void	swap(t_stack_node **head)
 	(*head)->previous->next = (*head)->next;
 	if ((*head)->next)
 		(*head)->next->previous = (*head)->previous;
+	(*head)->next = (*head)->previous;
 	(*head)->previous = NULL;
 }
 

@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 20:16:36 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/19 20:58:54 by mfernand         ###   ########.fr       */
+/*   Created: 2025/05/20 21:23:03 by mfernand          #+#    #+#             */
+/*   Updated: 2025/05/20 21:23:04 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	stack_size(t_stack_node *stack)
 {

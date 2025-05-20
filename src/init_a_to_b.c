@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 21:56:52 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/19 21:58:02 by mfernand         ###   ########.fr       */
+/*   Created: 2025/05/20 21:21:35 by mfernand          #+#    #+#             */
+/*   Updated: 2025/05/20 21:22:28 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	current_index(t_stack_node *stack)
 {
@@ -33,7 +33,7 @@ void	current_index(t_stack_node *stack)
 	}
 }
 
-static void	set_target_a(t_stack_node *a, t_stack_node *b)
+void	set_target_a(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*current_b;
 	t_stack_node	*target_node;
@@ -61,7 +61,7 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
+static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 {
 	int	len_a;
 	int	len_b;

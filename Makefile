@@ -2,18 +2,18 @@ NAME = push_swap
 
 OPTIONS = -I -c $(MY_INCLUDES)
 
-SRC = push_swap.c \
-		swap.c \
-		push.c \
-		rotate.c \
-		rev_rotate.c \
-		stack_utils.c \
-		errors.c \
-		init_a_to_b.c \
-		init_b_to_a.c \
-		sort_stacks.c \
-		sort_three.c \
-		stack_init.c \
+SRC = src/push_swap.c \
+		src/swap.c \
+		src/push.c \
+		src/rotate.c \
+		src/rev_rotate.c \
+		src/stack_utils.c \
+		src/errors.c \
+		src/init_a_to_b.c \
+		src/init_b_to_a.c \
+		src/sort_stacks.c \
+		src/sort_three.c \
+		src/stack_init.c \
 		libft/printf/ft_printf.c \
 		libft/printf/ft_putchar.c \
 		libft/printf/ft_putstr.c \

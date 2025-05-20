@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 20:20:32 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/19 20:55:33 by mfernand         ###   ########.fr       */
+/*   Created: 2025/05/20 21:21:51 by mfernand          #+#    #+#             */
+/*   Updated: 2025/05/20 21:22:56 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-static void	push(t_stack_node **dst, t_stack_node **src)
+void	push(t_stack_node **dst, t_stack_node **src)
 {
 	t_stack_node	*push_node;
 

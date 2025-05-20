@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 21:57:45 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/19 21:57:48 by mfernand         ###   ########.fr       */
+/*   Created: 2025/05/20 21:21:42 by mfernand          #+#    #+#             */
+/*   Updated: 2025/05/20 21:26:51 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	sort_three(t_stack_node **a)
 {
