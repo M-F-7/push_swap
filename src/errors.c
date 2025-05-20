@@ -6,22 +6,22 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 21:21:32 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/20 21:22:18 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/20 21:37:15 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	error_syntax(char *str_n)
+int	error_syntax(char *str)
 {
-	if (!(*str_n == '+' || *str_n == '-' || (*str_n >= '0' && *str_n <= '9')))
+	if (!(*str == '+' || *str == '-' || (*str >= '0' && *str <= '9')))
 		return (1);
-	if ((*str_n == '+' || *str_n == '-') && !(str_n[1] >= '0'
-			&& str_n[1] <= '9'))
+	if ((*str == '+' || *str == '-') && !(str[1] >= '0'
+			&& str[1] <= '9'))
 		return (1);
-	while (*++str_n)
+	while (*++str)
 	{
-		if (!(*str_n >= '0' && *str_n <= '9'))
+		if (!(*str >= '0' && *str <= '9'))
 			return (1);
 	}
 	return (0);
