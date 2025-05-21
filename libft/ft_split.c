@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 10:55:38 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/18 17:21:42 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/21 11:54:24 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_copy_sep(const char *s, char sep)
 	i = 0;
 	while (s[i] && s[i] != sep)
 		i++;
-	dst = malloc(i);
+	dst = malloc(i + 1);
 	if (!dst)
 		return (NULL);
 	dst[i] = '\0';

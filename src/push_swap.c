@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 21:21:56 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/21 11:18:04 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/21 12:20:02 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int	main(int ac, char **av)
 	else if (ac == 2)
 	{
 		av = ft_split(av[1], ' ');
-		init_stack_a(&a, av);
+		init_stack_a(&a, av, 1);
 	}
 	else
-		init_stack_a(&a, av + 1);
+		init_stack_a(&a, av + 1, 0);
 	if (!is_sorted(a))
 	{
 		if (stack_size(a) == 2)
