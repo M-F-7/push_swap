@@ -47,7 +47,6 @@ $(NAME) : $(OBJ)
 
 %.o: %.c
 	@$(CC) $(CFLAGS)  -c $< -o $@
-	@echo "Compiling $<"
 
 clean :  
 	@rm -f $(OBJ) 
