@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 21:21:56 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/21 09:47:13 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/21 11:18:04 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 int	main(int ac, char **av)
 {
-	t_stack_node	*a;
-	t_stack_node	*b;
+	static t_stack_node	*a = NULL;
+	static t_stack_node	*b = NULL;
 
-	a = NULL;
-	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (1);
 	else if (ac == 2)
