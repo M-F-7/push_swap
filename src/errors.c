@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 21:21:32 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/21 12:19:08 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/21 13:42:41 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ int	error_syntax(char *str)
 {
 	if (!(*str == '+' || *str == '-' || (*str >= '0' && *str <= '9')))
 		return (1);
-	if ((*str == '+' || *str == '-') && !(str[1] >= '0'
-			&& str[1] <= '9'))
+	if ((*str == '+' || *str == '-') && !(str[1] >= '0' && str[1] <= '9'))
 		return (1);
 	while (*++str)
 	{
@@ -58,19 +57,12 @@ void	free_stack(t_stack_node **stack)
 	*stack = NULL;
 }
 
-// void	free_errors(t_stack_node **a, char **av)
-// {
-//     free_stack(a);
-//     if (av)
-//         free_tab(av);
-//     exit(1);
-// }
-
 
 void	free_errors(t_stack_node **a, char **av, int should_free)
 {
-    free_stack(a);
-    if (should_free && av)
-        free_tab(av);
-    exit(1);
+	free_stack(a);
+	if (should_free && av)
+		free_tab(av);
+	ft_printf("Error\n");
+	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 21:21:38 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/21 12:19:16 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/21 13:42:17 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,44 +58,24 @@ void	append_node(t_stack_node **stack, int n)
 	}
 }
 
-// void	init_stack_a(t_stack_node **a, char **av)
-// {
-// 	long	n;
-// 	int		i;
-
-// 	i = 0;
-// 	while (av[i])
-// 	{
-// 		if (error_syntax(av[i]))
-// 			free_errors(a, av);
-// 		n = ft_atol(av[i]);
-// 		if (n > INT_MAX || n < INT_MIN)
-// 			free_errors(a, av);	
-// 		if (error_duplicate(*a, (int)n))
-// 			free_errors(a, av);	
-// 		append_node(a, (int)n);
-// 		i++;
-// 	}
-// }
-
 void	init_stack_a(t_stack_node **a, char **av, int should_free)
 {
-    long	n;
-    int		i;
+	long	n;
+	int		i;
 
-    i = 0;
-    while (av[i])
-    {
-        if (error_syntax(av[i]))
-            free_errors(a, av, should_free);
-        n = ft_atol(av[i]);
-        if (n > INT_MAX || n < INT_MIN)
-            free_errors(a, av, should_free);	
-        if (error_duplicate(*a, (int)n))
-            free_errors(a, av, should_free);	
-        append_node(a, (int)n);
-        i++;
-    }
+	i = 0;
+	while (av[i])
+	{
+		if (error_syntax(av[i]))
+			free_errors(a, av, should_free);
+		n = ft_atol(av[i]);
+		if (n > INT_MAX || n < INT_MIN)
+			free_errors(a, av, should_free);
+		if (error_duplicate(*a, (int)n))
+			free_errors(a, av, should_free);
+		append_node(a, (int)n);
+		i++;
+	}
 }
 
 t_stack_node	*get_cheapest(t_stack_node *stack)
