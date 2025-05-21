@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 21:21:32 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/21 13:42:41 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/05/21 13:45:54 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void	free_stack(t_stack_node **stack)
 	}
 	*stack = NULL;
 }
-
 
 void	free_errors(t_stack_node **a, char **av, int should_free)
 {
