@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 20:22:12 by mfernand          #+#    #+#             */
-/*   Updated: 2025/11/27 08:23:52 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/11/27 10:06:57 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
-# include "libft/libft.h"
-# include "libft/printf/ft_printf.h"
+# include "../libft/libft.h"
+# include "../libft/printf/ft_printf.h"
 # include <limits.h>
 # include <stdbool.h>
+# include <stdlib.h>
 
 typedef struct s_stack_node
 {
@@ -33,7 +34,8 @@ void					free_stack(t_stack_node **stack);
 void					free_tab(char **tab);
 void					free_errors(t_stack_node **a, char **av, int flag);
 
-void					init_stack_a(t_stack_node **a, char **argv, int flag);
+void					init_stack_a(t_stack_node **a, char **argv, int flag,
+							int ac);
 
 // algo
 void					sort_stacks(t_stack_node **a, t_stack_node **b);
@@ -49,6 +51,10 @@ t_stack_node			*find_last(t_stack_node *stack);
 bool					is_sorted(t_stack_node *stack);
 int						find_pos_by_index(t_stack_node **b);
 int						get_range(int size);
+long					ft_atol(const char *s);
+bool					is_instructions(char *str);
+void					exec_instructions(char *str, t_stack_node **a,
+							t_stack_node **b);
 
 // print
 void					print_index(t_stack_node **a);
