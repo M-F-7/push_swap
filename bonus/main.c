@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 08:17:59 by mfernand          #+#    #+#             */
-/*   Updated: 2025/11/27 10:34:14 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/11/27 10:50:15 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@ void	manage_input(t_stack_node **a, t_stack_node **b, char **av, int ac)
 	{
 		if (!line)
 			break ;
-		if (line[0] == '\n')
-		{
-			free(line);
-			break ;
-		}
 		if (!is_instructions(line))
 		{
 			if (line)
