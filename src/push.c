@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 21:21:51 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/20 21:22:56 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/11/27 05:30:55 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 void	push(t_stack_node **dst, t_stack_node **src)
 {
-	t_stack_node	*push_node;
+	t_stack_node	*node;
 
 	if (!*src)
 		return ;
-	push_node = *src;
+	node = *src;
 	*src = (*src)->next;
 	if (*src)
 		(*src)->previous = NULL;
-	push_node->previous = NULL;
+	node->previous = NULL;
 	if (!*dst)
 	{
-		*dst = push_node;
-		push_node->next = NULL;
+		*dst = node;
+		node->next = NULL;
 	}
 	else
 	{
-		push_node->next = *dst;
-		push_node->next->previous = push_node;
-		*dst = push_node;
+		node->next = *dst;
+		node->next->previous = node;
+		*dst = node;
 	}
 }
 

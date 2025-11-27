@@ -6,7 +6,7 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 20:22:12 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/21 13:42:24 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/11/27 06:17:37 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,39 +22,53 @@ typedef struct s_stack_node
 {
 	int					value;
 	int					index;
-	int					cost;
-	bool				above_median;
-	bool				cheapest;
-	struct s_stack_node	*target_node;
 	struct s_stack_node	*next;
 	struct s_stack_node	*previous;
 }						t_stack_node;
 
-int						error_syntax(char *str);
+// parsing & clean
+int						only_digit(char *str);
 int						error_duplicate(t_stack_node *a, int n);
 void					free_stack(t_stack_node **stack);
-void					free_errors(t_stack_node **a, char **av,
-							int shoudl_free);
 void					free_tab(char **tab);
+void					free_errors(t_stack_node **a, char **av, int flag);
 
-void					check_sort(t_stack_node *a, t_stack_node *b);
-void					init_stack_a(t_stack_node **a, char **argv,
-							int shoudl_free);
+void					init_stack_a(t_stack_node **a, char **argv, int flag);
 
-void					init_nodes_a(t_stack_node *a, t_stack_node *b);
-void					init_nodes_b(t_stack_node *a, t_stack_node *b);
-void					current_index(t_stack_node *stack);
-void					set_cheapest(t_stack_node *stack);
-t_stack_node			*get_cheapest(t_stack_node *stack);
-void					sort_before_push(t_stack_node **s, t_stack_node *n,
-							char c);
+// algo
+void					sort_stacks(t_stack_node **a, t_stack_node **b);
+void					set_up_index(t_stack_node **a);
+void					start_sort(t_stack_node **a, t_stack_node **b);
+void					sort_b(t_stack_node **a, t_stack_node **b);
+void					move_max_val_to_top(t_stack_node **b, int pos,
+							int size);
 
+// utils
 int						stack_size(t_stack_node *stack);
 t_stack_node			*find_last(t_stack_node *stack);
 bool					is_sorted(t_stack_node *stack);
-t_stack_node			*find_min(t_stack_node *stack);
+int						find_pos_by_index(t_stack_node **b);
+int						get_range(int size);
+
+// print
+void					print_index(t_stack_node **a);
+void					print_stack(t_stack_node **stack);
+void					check_sorted(t_stack_node **stack);
+
+// little sort
+void					little_sort(t_stack_node **a, t_stack_node **b,
+							int size);
+void					sort_three(t_stack_node **a);
+void					sort_four(t_stack_node **a, t_stack_node **b, int size);
+void					sort_five(t_stack_node **a, t_stack_node **b, int size);
+
+// little sort utils
+t_stack_node			*find_min_idx(t_stack_node **stack);
+void					move_min(t_stack_node **a, int pos, int size);
+int						find_min_by_idx(t_stack_node **a, t_stack_node *target);
 t_stack_node			*find_max(t_stack_node *stack);
-void					min_on_top(t_stack_node **a);
+
+// instructions
 
 void					sa(t_stack_node **a, bool print);
 void					sb(t_stack_node **b, bool print);
@@ -67,8 +81,5 @@ void					rrb(t_stack_node **b, bool print);
 void					rrr(t_stack_node **a, t_stack_node **b, bool print);
 void					pa(t_stack_node **a, t_stack_node **b, bool print);
 void					pb(t_stack_node **b, t_stack_node **a, bool print);
-
-void					sort_three(t_stack_node **a);
-void					sort_stacks(t_stack_node **a, t_stack_node **b);
 
 #endif

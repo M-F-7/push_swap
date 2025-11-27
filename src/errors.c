@@ -6,13 +6,13 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 21:21:32 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/21 13:45:54 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/11/27 06:36:57 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	error_syntax(char *str)
+int	only_digit(char *str)
 {
 	if (!(*str == '+' || *str == '-' || (*str >= '0' && *str <= '9')))
 		return (1);
@@ -57,11 +57,12 @@ void	free_stack(t_stack_node **stack)
 	*stack = NULL;
 }
 
-void	free_errors(t_stack_node **a, char **av, int should_free)
+void	free_errors(t_stack_node **a, char **av, int flag)
 {
-	free_stack(a);
-	if (should_free && av)
+	if (a)
+		free_stack(a);
+	if (av && flag)
 		free_tab(av);
-	ft_printf("Error\n");
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }

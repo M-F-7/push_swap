@@ -2,17 +2,18 @@ NAME = push_swap
 
 OPTIONS = -I -c $(MY_INCLUDES)
 
-SRC = src/push_swap.c \
+SRC = src/main.c \
+		src/little_sort_utils.c \
+		src/little_sort.c \
+		src/utils_sort.c \
+		src/debug.c \
 		src/swap.c \
 		src/push.c \
 		src/rotate.c \
 		src/rev_rotate.c \
 		src/stack_utils.c \
 		src/errors.c \
-		src/init_a_to_b.c \
-		src/init_b_to_a.c \
-		src/sort_stacks.c \
-		src/sort_three.c \
+		src/sort_stack.c \
 		src/stack_init.c \
 		libft/printf/ft_printf.c \
 		libft/printf/ft_putchar.c \
@@ -43,16 +44,16 @@ CFLAGS = -Wall -Wextra -Werror -g
 all : $(NAME) 
 
 $(NAME) : $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.c
-	@$(CC) $(CFLAGS)  -c $< -o $@
+	$(CC) $(CFLAGS)  -c $< -o $@
 
 clean :  
-	@rm -f $(OBJ) 
+	rm -f $(OBJ) 
 
 fclean : clean 
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re : fclean all
 

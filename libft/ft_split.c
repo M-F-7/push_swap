@@ -6,14 +6,14 @@
 /*   By: mfernand <mfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 10:55:38 by mfernand          #+#    #+#             */
-/*   Updated: 2025/05/21 11:54:24 by mfernand         ###   ########.fr       */
+/*   Updated: 2025/11/27 06:35:19 by mfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			count_words(const char *s, char sep);
-void		free_tab(char **tab);
+int		count_words(const char *s, char sep);
+void	free_tab(char **tab);
 
 char	*ft_copy_sep(const char *s, char sep)
 {
